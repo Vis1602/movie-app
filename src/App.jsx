@@ -43,9 +43,9 @@ const fetchMovies = async (query="") => {
       throw new Error('Error fetching data');
     }
     const data = await response.json();
-    //console.log(data.results);
-    if(data.Response==='False'){
-      seterrorMessage(data.Error);  
+    console.log(data.results);
+    if (data.results.length === 0) {
+      seterrorMessage("No movies found for your search.");
       setmovieList([]);
       return;
     }
